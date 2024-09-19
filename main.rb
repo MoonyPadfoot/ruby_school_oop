@@ -4,28 +4,30 @@ puts "Choose an option below:\n"
 puts "(1) Add Student\n(2) Delete Student\n"
 option = gets.to_i
 
-id = Student.all.size + 1
+case option
+when option == 1
+  id = Student.all.size + 1
 
-puts "Enter name:"
-name = gets.chomp
+  puts "Enter name:"
+  name = gets.chomp
 
-puts "Enter birth date:"
-birth_date = gets.chomp
+  puts "Enter birth date:"
+  birth_date = gets.chomp
 
-puts "Enter email:"
-email = gets.chomp
+  puts "Enter email:"
+  email = gets.chomp
 
-puts "Enter phone number:"
-phone_number = gets.chomp
+  puts "Enter phone number:"
+  phone_number = gets.chomp
 
-student = Student.new
-student.id = id
-student.name = name
-student.birth_date = birth_date
-student.email = email
-student.phone_number = phone_number
+  student = Student.new
+  student.id = id
+  student.name = name
+  student.birth_date = birth_date
+  student.email = email
+  student.phone_number = phone_number
 
-if student.save
-  puts "Student added successfully!"
+  if student.save
+    puts "Student added successfully!"
+  end
 end
-
