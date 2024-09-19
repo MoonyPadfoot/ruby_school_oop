@@ -15,4 +15,10 @@ class Subject
   def destroy
     @@record.delete(self)
   end
+
+  def display
+    puts "ID: #{@id}"
+    puts "Name: #{@name}"
+    puts "===============\n"
+  end
 end
