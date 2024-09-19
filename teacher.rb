@@ -33,4 +33,8 @@ class Teacher
   def self.all
     @@record
   end
+
+  def self.find(id)
+    @@record.find { |teacher| teacher.id == id }
+  end
 end
