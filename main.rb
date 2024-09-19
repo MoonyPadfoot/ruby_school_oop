@@ -81,4 +81,7 @@ while option != 'exit'
   end
 
 end
+puts Student.all.each { |elem| elem.display }
+puts "\n\n"
+puts Course.all.display { |elem| elem.display }
 
