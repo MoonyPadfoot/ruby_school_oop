@@ -14,5 +14,14 @@ email = gets.chomp
 puts "Enter phone number:"
 phone_number = gets.chomp
 
+student = Student.new
+student.id = id
+student.name = name
+student.birth_date = birth_date
+student.email = email
+student.phone_number = phone_number
 
+if student.save
+  puts "Student added successfully!"
+end
 
