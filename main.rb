@@ -3,12 +3,14 @@ require_relative 'course'
 require_relative 'subject'
 require_relative 'teacher'
 require_relative 'helpers'
+include Helper
 
 option = nil
 while option != 'exit'
   puts "Choose an option below:\n"
   puts "(1) Student Management\n(2) Course Management\n(3) Subject Management\n(4) Teacher Management\n"
   option = gets.chomp
+  Helper.clear_console
 
   case option.to_i
     # Student Management
@@ -16,6 +18,7 @@ while option != 'exit'
     puts "Choose an option below:\n"
     puts "(1) Add Student\n(2) Delete Student\n"
     option = gets.chomp
+    Helper.clear_console
 
     case option.to_i
       # Add Student
@@ -34,6 +37,8 @@ while option != 'exit'
       puts "Enter phone number:"
       phone_number = gets.chomp
 
+      Helper.clear_console
+
       student = Student.new
       student.id = id
       student.name = name
@@ -49,6 +54,7 @@ while option != 'exit'
     when 2
       puts "Enter student id:"
       id = gets.to_i
+      Helper.clear_console
 
       student = Student.find(id)
       puts "Student destroyed successfully!\n" if student.destroy
@@ -59,6 +65,7 @@ while option != 'exit'
     puts "Choose an option below:\n"
     puts "(1) Add Course\n(2) Delete Course\n"
     option = gets.chomp
+    Helper.clear_console
 
     case option.to_i
       # Add course
@@ -67,6 +74,7 @@ while option != 'exit'
 
       puts "Enter name:"
       name = gets.chomp
+      Helper.clear_console
 
       course = Course.new
       course.id = id
@@ -80,6 +88,7 @@ while option != 'exit'
     when 2
       puts "Enter course id:"
       id = gets.to_i
+      Helper.clear_console
 
       course = Course.find(id)
       puts "Course destroyed successfully!\n" if course.destroy
@@ -90,6 +99,7 @@ while option != 'exit'
     puts "Choose an option below:\n"
     puts "(1) Add Subject\n(2) Delete Subject\n"
     option = gets.chomp
+    Helper.clear_console
 
     case option.to_i
       # Add Subject
@@ -98,6 +108,7 @@ while option != 'exit'
 
       puts "Enter name:"
       name = gets.chomp
+      Helper.clear_console
 
       subject = Subject.new
       subject.id = id
@@ -111,6 +122,7 @@ while option != 'exit'
     when 2
       puts "Enter subject id:"
       id = gets.to_i
+      Helper.clear_console
 
       subject = Subject.find(id)
       puts "Subject destroyed successfully!\n" if subject.destroy
@@ -120,6 +132,7 @@ while option != 'exit'
     puts "Choose an option below:\n"
     puts "(1) Add Teacher\n(2) Delete Teacher\n"
     option = gets.chomp
+    Helper.clear_console
 
     case option.to_i
       # Add Teacher
@@ -141,6 +154,8 @@ while option != 'exit'
       puts "Enter department:"
       department = gets.chomp
 
+      Helper.clear_console
+
       teacher = Teacher.new
       teacher.id = id
       teacher.name = name
@@ -157,6 +172,7 @@ while option != 'exit'
     when 2
       puts "Enter teacher id:"
       id = gets.to_i
+      Helper.clear_console
 
       teacher = Teacher.find(id)
       puts "Teacher destroyed successfully!\n" if teacher.destroy
