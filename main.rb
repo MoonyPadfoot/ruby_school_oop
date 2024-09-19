@@ -92,7 +92,19 @@ while option != 'exit'
     case option.to_i
       # Add Subject
     when 1
+      id = Subject.all.size + 1
 
+      puts "Enter name:"
+      name = gets.chomp
+
+      subject = Subject.new
+      subject.id = id
+      subject.name = name
+
+      if subject.save
+        subject.display
+        puts "Subject added successfully!\n"
+      end
       # Delete subject
     when 2
 
