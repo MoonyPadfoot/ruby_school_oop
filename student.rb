@@ -33,10 +33,10 @@ class Student
   end
 
   def self.find(id)
-    @@record.find { |person| person.id == id }
+    @@record.find { |student| student.id == id }
   end
 
   def self.find_by_email(email)
-    @@record.find { |person| person.email = email }
+    @@record.find { |student| student.email = email }
   end
 end
