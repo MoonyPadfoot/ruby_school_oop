@@ -50,6 +50,9 @@ while option != 'exit'
 
     end
   when 2
+    puts "Choose an option below:\n"
+    puts "(1) Add Course\n(2) Delete Course\n"
+    option = gets.chomp
 
   end
 
