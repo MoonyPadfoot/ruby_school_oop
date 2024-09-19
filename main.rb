@@ -54,6 +54,25 @@ while option != 'exit'
     puts "(1) Add Course\n(2) Delete Course\n"
     option = gets.chomp
 
+    case option.to_i
+    when 1
+      id = Course.all.size + 1
+
+      puts "Enter name:"
+      name = gets.chomp
+
+      course = Course.new
+      course.id = id
+      course.name = name
+
+      if course.save
+        course.display
+        puts "Course added successfully!\n"
+      end
+
+    when 2
+
+    end
   end
 
 end
