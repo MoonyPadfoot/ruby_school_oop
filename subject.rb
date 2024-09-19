@@ -11,4 +11,8 @@ class Subject
   def save
     @@record.prepend(self)
   end
+
+  def destroy
+    @@record.delete(self)
+  end
 end
