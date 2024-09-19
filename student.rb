@@ -10,4 +10,13 @@ class Student
   def destroy
     @@record.delete(self)
   end
+
+  def display
+    puts "ID: #{@id}"
+    puts "Name: #{@name}"
+    puts "Birth date: #{@birth_date}"
+    puts "Email: #{@email}"
+    puts "Phone number: #{@phone_number}"
+    puts "==============="
+  end
 end
