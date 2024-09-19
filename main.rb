@@ -107,7 +107,11 @@ while option != 'exit'
       end
       # Delete subject
     when 2
+      puts "Enter subject id:"
+      id = gets.to_i
 
+      subject = Subject.find(id)
+      puts "Subject destroyed successfully!\n" if subject.destroy
     end
   end
 
@@ -115,4 +119,6 @@ end
 puts Student.all.each { |elem| elem.display }
 puts "\n\n"
 puts Course.all.display { |elem| elem.display }
+puts "\n\n"
+puts Subject.all.display { |elem| elem.display }
 
