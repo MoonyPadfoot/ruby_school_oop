@@ -71,6 +71,11 @@ while option != 'exit'
       end
 
     when 2
+      puts "Enter course id:"
+      id = gets.to_i
+
+      course = Course.find(id)
+      puts "Course destroyed successfully!\n" if course.destroy
 
     end
   end
