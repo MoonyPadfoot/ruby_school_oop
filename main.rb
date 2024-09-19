@@ -15,9 +15,7 @@ while option != 'exit'
   case option.to_i
     # Student Management
   when 1
-    puts "Choose an option below:\n"
-    puts "(1) Add Student\n(2) Delete Student\n"
-    option = gets.chomp
+    option = Helper.add_delete_prompt("Student")
     Helper.clear_console
 
     case option.to_i
@@ -62,9 +60,7 @@ while option != 'exit'
     end
     # Course Management
   when 2
-    puts "Choose an option below:\n"
-    puts "(1) Add Course\n(2) Delete Course\n"
-    option = gets.chomp
+    option = Helper.add_delete_prompt("Course")
     Helper.clear_console
 
     case option.to_i
@@ -96,9 +92,7 @@ while option != 'exit'
     end
     # Subject Management
   when 3
-    puts "Choose an option below:\n"
-    puts "(1) Add Subject\n(2) Delete Subject\n"
-    option = gets.chomp
+    option = Helper.add_delete_prompt("Subject")
     Helper.clear_console
 
     case option.to_i
@@ -129,9 +123,7 @@ while option != 'exit'
     end
     # Teacher Management
   when 4
-    puts "Choose an option below:\n"
-    puts "(1) Add Teacher\n(2) Delete Teacher\n"
-    option = gets.chomp
+    option = Helper.add_delete_prompt("Teacher")
     Helper.clear_console
 
     case option.to_i
