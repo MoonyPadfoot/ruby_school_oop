@@ -37,4 +37,8 @@ class Teacher
   def self.find(id)
     @@record.find { |teacher| teacher.id == id }
   end
+
+  def self.find_by_email(email)
+    @@record.find { |teacher| teacher.email = email }
+  end
 end
