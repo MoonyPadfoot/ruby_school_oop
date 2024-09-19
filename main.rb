@@ -92,6 +92,49 @@ def delete_subject
   puts "Subject destroyed successfully!\n" if subject.destroy
 end
 
+def add_teacher
+  id = Teacher.all.size + 1
+
+  puts "Enter name:"
+  name = gets.chomp
+
+  puts "Enter birth date:"
+  birth_date = gets.chomp
+
+  puts "Enter email:"
+  email = gets.chomp
+
+  puts "Enter phone number:"
+  phone_number = gets.chomp
+
+  puts "Enter department:"
+  department = gets.chomp
+
+  Helper.clear_console
+
+  teacher = Teacher.new
+  teacher.id = id
+  teacher.name = name
+  teacher.birth_date = birth_date
+  teacher.email = email
+  teacher.phone_number = phone_number
+  teacher.department = department
+
+  if teacher.save
+    teacher.display
+    puts "Teacher added successfully!\n"
+  end
+end
+
+def delete_teacher
+  puts "Enter teacher id:"
+  id = gets.to_i
+  Helper.clear_console
+
+  teacher = Teacher.find(id)
+  puts "Teacher destroyed successfully!\n" if teacher.destroy
+end
+
 option = nil
 while option != 'exit'
   puts "Choose an option below:\n"
@@ -148,45 +191,10 @@ while option != 'exit'
     case option.to_i
       # Add Teacher
     when 1
-      id = Teacher.all.size + 1
-
-      puts "Enter name:"
-      name = gets.chomp
-
-      puts "Enter birth date:"
-      birth_date = gets.chomp
-
-      puts "Enter email:"
-      email = gets.chomp
-
-      puts "Enter phone number:"
-      phone_number = gets.chomp
-
-      puts "Enter department:"
-      department = gets.chomp
-
-      Helper.clear_console
-
-      teacher = Teacher.new
-      teacher.id = id
-      teacher.name = name
-      teacher.birth_date = birth_date
-      teacher.email = email
-      teacher.phone_number = phone_number
-      teacher.department = department
-
-      if teacher.save
-        teacher.display
-        puts "Teacher added successfully!\n"
-      end
+      add_teacher
       # Delete Teacher
     when 2
-      puts "Enter teacher id:"
-      id = gets.to_i
-      Helper.clear_console
-
-      teacher = Teacher.find(id)
-      puts "Teacher destroyed successfully!\n" if teacher.destroy
+      delete_teacher
     end
   end
 
