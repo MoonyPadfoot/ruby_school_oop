@@ -72,9 +72,7 @@ while option != 'exit'
       name = gets.chomp
       Helper.clear_console
 
-      course = Course.new
-      course.id = id
-      course.name = name
+      course = Course.new(id, name)
 
       if course.save
         course.display
@@ -104,9 +102,7 @@ while option != 'exit'
       name = gets.chomp
       Helper.clear_console
 
-      subject = Subject.new
-      subject.id = id
-      subject.name = name
+      subject = Subject.new(id, name)
 
       if subject.save
         subject.display
