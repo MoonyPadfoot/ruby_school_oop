@@ -44,6 +44,30 @@ def delete_student
   puts "Student destroyed successfully!\n" if student.destroy
 end
 
+def add_course
+  id = Course.all.size + 1
+
+  puts "Enter name:"
+  name = gets.chomp
+  Helper.clear_console
+
+  course = Course.new(id, name)
+
+  if course.save
+    course.display
+    puts "Course added successfully!\n"
+  end
+end
+
+def delete_course
+  puts "Enter course id:"
+  id = gets.to_i
+  Helper.clear_console
+
+  course = Course.find(id)
+  puts "Course destroyed successfully!\n" if course.destroy
+end
+
 option = nil
 while option != 'exit'
   puts "Choose an option below:\n"
@@ -64,7 +88,6 @@ while option != 'exit'
       # Delete Student
     when 2
       delete_student
-
     end
     # Course Management
   when 2
@@ -74,26 +97,10 @@ while option != 'exit'
     case option.to_i
       # Add course
     when 1
-      id = Course.all.size + 1
-
-      puts "Enter name:"
-      name = gets.chomp
-      Helper.clear_console
-
-      course = Course.new(id, name)
-
-      if course.save
-        course.display
-        puts "Course added successfully!\n"
-      end
+      add_course
       # Delete Course
     when 2
-      puts "Enter course id:"
-      id = gets.to_i
-      Helper.clear_console
-
-      course = Course.find(id)
-      puts "Course destroyed successfully!\n" if course.destroy
+      delete_course
 
     end
     # Subject Management
