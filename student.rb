@@ -1,7 +1,7 @@
 class Student
   attr_accessor :id, :name, :birth_date, :email, :phone_number
 
-  def initialize(id, name, birth_date, email, phone_number)
+  def initialize(id = nil, name = nil, birth_date = nil, email = nil, phone_number = nil)
     @id = id
     @name = name
     @birth_date = birth_date
