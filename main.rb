@@ -2,6 +2,7 @@ require_relative 'student'
 require_relative 'course'
 require_relative 'subject'
 require_relative 'teacher'
+require_relative 'helpers'
 
 option = nil
 while option != 'exit'
