@@ -116,9 +116,13 @@ while option != 'exit'
   end
 
 end
+
+puts "Student\n\n"
 puts Student.all.each { |elem| elem.display }
-puts "\n\n"
+puts "Course\n\n"
 puts Course.all.display { |elem| elem.display }
-puts "\n\n"
+puts "Subject\n\n"
 puts Subject.all.display { |elem| elem.display }
+puts "Teacher\n\n"
+puts Teacher.all.display { |elem| elem.display }
 
