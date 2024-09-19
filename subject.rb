@@ -5,4 +5,10 @@ class Subject
     @id = id
     @name = name
   end
+
+  @@record = []
+
+  def save
+    @@record.prepend(self)
+  end
 end
