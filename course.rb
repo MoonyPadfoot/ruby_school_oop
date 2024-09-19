@@ -25,4 +25,8 @@ class Course
   def self.all
     @@record
   end
+
+  def self.find(id)
+    @@record.find { |student| student.id == id }
+  end
 end
