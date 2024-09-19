@@ -24,7 +24,7 @@ class Student
     @@record
   end
 
-  def self.find(national_id)
-    @@record.find { |person| person.id == national_id}
+  def self.find(id)
+    @@record.find { |person| person.id == id }
   end
 end
