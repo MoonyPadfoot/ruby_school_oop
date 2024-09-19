@@ -16,7 +16,7 @@ class Teacher
     @@record.prepend(self)
   end
 
-  def destroy(id)
-    @@record.delete(id)
+  def destroy
+    @@record.delete(self)
   end
 end
