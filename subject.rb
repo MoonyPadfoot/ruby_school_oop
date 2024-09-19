@@ -21,4 +21,9 @@ class Subject
     puts "Name: #{@name}"
     puts "===============\n"
   end
+
+  def self.all
+    @@record
+  end
+
 end
