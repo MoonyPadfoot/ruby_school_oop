@@ -1,7 +1,6 @@
 require_relative 'student'
 
-puts "Enter id:"
-id = gets.to_i
+id = Student.all.size + 1
 
 puts "Enter name:"
 name = gets.chomp
@@ -14,4 +13,6 @@ email = gets.chomp
 
 puts "Enter phone number:"
 phone_number = gets.chomp
+
+
 
