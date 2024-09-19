@@ -29,4 +29,8 @@ class Teacher
     puts "Department: #{@department}"
     puts "===============\n"
   end
+
+  def self.all
+    @@record
+  end
 end
