@@ -26,4 +26,7 @@ class Subject
     @@record
   end
 
+  def self.find(id)
+    @@record.find { |subject| subject.id == id }
+  end
 end
