@@ -5,6 +5,45 @@ require_relative 'teacher'
 require_relative 'helpers'
 include Helper
 
+def add_student
+  id = Student.all.size + 1
+
+  puts "Enter name:"
+  name = gets.chomp
+
+  puts "Enter birth date:"
+  birth_date = gets.chomp
+
+  puts "Enter email:"
+  email = gets.chomp
+
+  puts "Enter phone number:"
+  phone_number = gets.chomp
+
+  Helper.clear_console
+
+  student = Student.new
+  student.id = id
+  student.name = name
+  student.birth_date = birth_date
+  student.email = email
+  student.phone_number = phone_number
+
+  if student.save
+    student.display
+    puts "Student added successfully!\n"
+  end
+end
+
+def delete_student
+  puts "Enter student id:"
+  id = gets.to_i
+  Helper.clear_console
+
+  student = Student.find(id)
+  puts "Student destroyed successfully!\n" if student.destroy
+end
+
 option = nil
 while option != 'exit'
   puts "Choose an option below:\n"
@@ -21,41 +60,10 @@ while option != 'exit'
     case option.to_i
       # Add Student
     when 1
-      id = Student.all.size + 1
-
-      puts "Enter name:"
-      name = gets.chomp
-
-      puts "Enter birth date:"
-      birth_date = gets.chomp
-
-      puts "Enter email:"
-      email = gets.chomp
-
-      puts "Enter phone number:"
-      phone_number = gets.chomp
-
-      Helper.clear_console
-
-      student = Student.new
-      student.id = id
-      student.name = name
-      student.birth_date = birth_date
-      student.email = email
-      student.phone_number = phone_number
-
-      if student.save
-        student.display
-        puts "Student added successfully!\n"
-      end
+      add_student
       # Delete Student
     when 2
-      puts "Enter student id:"
-      id = gets.to_i
-      Helper.clear_console
-
-      student = Student.find(id)
-      puts "Student destroyed successfully!\n" if student.destroy
+      delete_student
 
     end
     # Course Management
