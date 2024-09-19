@@ -5,7 +5,7 @@ puts "(1) Add Student\n(2) Delete Student\n"
 option = gets.to_i
 
 case option
-when option == 1
+when 1
   id = Student.all.size + 1
 
   puts "Enter name:"
@@ -30,4 +30,5 @@ when option == 1
   if student.save
     puts "Student added successfully!"
   end
+
 end

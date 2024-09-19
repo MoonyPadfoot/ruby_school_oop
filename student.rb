@@ -1,6 +1,14 @@
 class Student
   attr_accessor :id, :name, :birth_date, :email, :phone_number
 
+  def initialize(id, name, birth_date, email, phone_number)
+    @id = id
+    @name = name
+    @birth_date = birth_date
+    @email = email
+    @phone_number = phone_number
+  end
+
   @@record = []
 
   def save
