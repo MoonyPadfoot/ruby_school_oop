@@ -1,4 +1,5 @@
 require_relative 'student'
+require_relative 'course'
 
 option = nil
 while option != 'exit'
