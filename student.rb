@@ -9,7 +9,7 @@ class Student
     @phone_number = phone_number
   end
 
-  @@record = [Student.new(1, 'test', '1997', 'test@mail.com', '631234113')]
+  @@record = []
 
   def save
     @@record.prepend(self)
