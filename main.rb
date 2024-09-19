@@ -1,5 +1,9 @@
 require_relative 'student'
 
+puts "Choose an option below:\n"
+puts "(1) Add Student\n(2) Delete Student\n"
+option = gets.to_i
+
 id = Student.all.size + 1
 
 puts "Enter name:"
