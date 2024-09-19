@@ -5,7 +5,7 @@ require_relative 'subject'
 option = nil
 while option != 'exit'
   puts "Choose an option below:\n"
-  puts "(1) Student Management\n(2) Course Management\n"
+  puts "(1) Student Management\n(2) Course Management\n(3) Subject Management\n"
   option = gets.chomp
 
   case option.to_i
@@ -79,6 +79,8 @@ while option != 'exit'
       puts "Course destroyed successfully!\n" if course.destroy
 
     end
+  when 3
+
   end
 
 end
