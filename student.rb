@@ -27,4 +27,8 @@ class Student
   def self.find(id)
     @@record.find { |person| person.id == id }
   end
+
+  def self.find_by_email(email)
+    @@record.find { |person| person.email = email }
+  end
 end
