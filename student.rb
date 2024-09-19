@@ -19,4 +19,9 @@ class Student
     puts "Phone number: #{@phone_number}"
     puts "==============="
   end
+
+  def self.all
+    @@record
+  end
+
 end
