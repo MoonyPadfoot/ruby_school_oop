@@ -5,7 +5,7 @@ require_relative 'subject'
 option = nil
 while option != 'exit'
   puts "Choose an option below:\n"
-  puts "(1) Student Management\n(2) Course Management\n(3) Subject Management\n"
+  puts "(1) Student Management\n(2) Course Management\n(3) Subject Management\n(4) Teacher Management\n"
   option = gets.chomp
 
   case option.to_i
@@ -105,13 +105,25 @@ while option != 'exit'
         subject.display
         puts "Subject added successfully!\n"
       end
-      # Delete subject
+      # Delete Subject
     when 2
       puts "Enter subject id:"
       id = gets.to_i
 
       subject = Subject.find(id)
       puts "Subject destroyed successfully!\n" if subject.destroy
+    end
+    # Teacher Management
+  when 4
+    puts "Choose an option below:\n"
+    puts "(1) Add Teacher\n(2) Delete Teacher\n"
+    option = gets.chomp
+
+    case option.to_i
+      # Add Teacher
+    when 1
+      # Delete Teacher
+    when 2
     end
   end
 
