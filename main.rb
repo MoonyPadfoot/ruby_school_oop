@@ -9,14 +9,14 @@ while option != 'exit'
   option = gets.chomp
 
   case option.to_i
-  # Student Management
+    # Student Management
   when 1
     puts "Choose an option below:\n"
     puts "(1) Add Student\n(2) Delete Student\n"
     option = gets.chomp
 
     case option.to_i
-    # Add Student
+      # Add Student
     when 1
       id = Student.all.size + 1
 
@@ -43,7 +43,7 @@ while option != 'exit'
         student.display
         puts "Student added successfully!\n"
       end
-    # Delete Student
+      # Delete Student
     when 2
       puts "Enter student id:"
       id = gets.to_i
@@ -52,14 +52,14 @@ while option != 'exit'
       puts "Student destroyed successfully!\n" if student.destroy
 
     end
-  # Course Management
+    # Course Management
   when 2
     puts "Choose an option below:\n"
     puts "(1) Add Course\n(2) Delete Course\n"
     option = gets.chomp
 
     case option.to_i
-    # Add course
+      # Add course
     when 1
       id = Course.all.size + 1
 
@@ -74,7 +74,7 @@ while option != 'exit'
         course.display
         puts "Course added successfully!\n"
       end
-    # Delete Course
+      # Delete Course
     when 2
       puts "Enter course id:"
       id = gets.to_i
@@ -83,9 +83,20 @@ while option != 'exit'
       puts "Course destroyed successfully!\n" if course.destroy
 
     end
-  # Subject Management
+    # Subject Management
   when 3
+    puts "Choose an option below:\n"
+    puts "(1) Add Subject\n(2) Delete Subject\n"
+    option = gets.chomp
 
+    case option.to_i
+      # Add Subject
+    when 1
+
+      # Delete subject
+    when 2
+
+    end
   end
 
 end
