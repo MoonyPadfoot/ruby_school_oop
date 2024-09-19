@@ -9,4 +9,10 @@ class Teacher
     @phone_number = phone_number
     @department = department
   end
+
+  @@record = []
+
+  def save
+    @@record.prepend(self)
+  end
 end
