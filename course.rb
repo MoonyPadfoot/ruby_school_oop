@@ -21,4 +21,8 @@ class Course
     puts "Name: #{@name}"
     puts "==============="
   end
+
+  def self.all
+    @@record
+  end
 end
