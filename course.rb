@@ -19,7 +19,7 @@ class Course
   def display
     puts "ID: #{@id}"
     puts "Name: #{@name}"
-    puts "==============="
+    puts "===============\n"
   end
 
   def self.all

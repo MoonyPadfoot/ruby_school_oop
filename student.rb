@@ -25,7 +25,7 @@ class Student
     puts "Birth date: #{@birth_date}"
     puts "Email: #{@email}"
     puts "Phone number: #{@phone_number}"
-    puts "==============="
+    puts "===============\n"
   end
 
   def self.all
