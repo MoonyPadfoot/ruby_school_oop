@@ -154,7 +154,11 @@ while option != 'exit'
       end
       # Delete Teacher
     when 2
+      puts "Enter teacher id:"
+      id = gets.to_i
 
+      teacher = Teacher.find(id)
+      puts "Teacher destroyed successfully!\n" if teacher.destroy
     end
   end
 
