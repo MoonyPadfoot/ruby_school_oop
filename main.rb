@@ -123,19 +123,49 @@ while option != 'exit'
     case option.to_i
       # Add Teacher
     when 1
+      id = Teacher.all.size + 1
+
+      puts "Enter name:"
+      name = gets.chomp
+
+      puts "Enter birth date:"
+      birth_date = gets.chomp
+
+      puts "Enter email:"
+      email = gets.chomp
+
+      puts "Enter phone number:"
+      phone_number = gets.chomp
+
+      puts "Enter department:"
+      department = gets.chomp
+
+      teacher = Teacher.new
+      teacher.id = id
+      teacher.name = name
+      teacher.birth_date = birth_date
+      teacher.email = email
+      teacher.phone_number = phone_number
+      teacher.department = department
+
+      if teacher.save
+        teacher.display
+        puts "Teacher added successfully!\n"
+      end
       # Delete Teacher
     when 2
+
     end
   end
 
 end
 
 puts "Student\n\n"
-puts Student.all.each { |elem| elem.display }
+Student.all.each { |elem| elem.display }
 puts "Course\n\n"
-puts Course.all.display { |elem| elem.display }
+Course.all.each { |elem| elem.display }
 puts "Subject\n\n"
-puts Subject.all.display { |elem| elem.display }
+Subject.all.each { |elem| elem.display }
 puts "Teacher\n\n"
-puts Teacher.all.display { |elem| elem.display }
+Teacher.all.each { |elem| elem.display }
 
