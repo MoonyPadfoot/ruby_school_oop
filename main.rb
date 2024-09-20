@@ -29,7 +29,8 @@ def add_student
   student.email = email
   student.phone_number = phone_number
 
-  if student.save
+  if student
+    student.save
     student.display
     puts "Student added successfully!\n"
   end
@@ -63,7 +64,8 @@ def add_course
 
   course = Course.new(id, name)
 
-  if course.save
+  if course
+    course.save
     course.display
     puts "Course added successfully!\n"
   end
@@ -75,7 +77,11 @@ def delete_course
   Helper.clear_console
 
   course = Course.find(id)
-  puts "Course destroyed successfully!\n" if course.destroy
+
+  if course
+    course.destroy
+    puts "Course destroyed successfully!\n"
+  end
 end
 
 def show_courses
@@ -94,7 +100,8 @@ def add_subject
 
   subject = Subject.new(id, name)
 
-  if subject.save
+  if subject
+    subject.save
     subject.display
     puts "Subject added successfully!\n"
   end
@@ -106,7 +113,10 @@ def delete_subject
   Helper.clear_console
 
   subject = Subject.find(id)
-  puts "Subject destroyed successfully!\n" if subject.destroy
+  if subject
+    subject.destroy
+    puts "Subject destroyed successfully!\n"
+  end
 end
 
 def show_subjects
@@ -144,7 +154,8 @@ def add_teacher
   teacher.phone_number = phone_number
   teacher.department = department
 
-  if teacher.save
+  if teacher
+    teacher.save
     teacher.display
     puts "Teacher added successfully!\n"
   end
@@ -156,7 +167,10 @@ def delete_teacher
   Helper.clear_console
 
   teacher = Teacher.find(id)
-  puts "Teacher destroyed successfully!\n" if teacher.destroy
+  if teacher
+    teacher.destroy
+    puts "Teacher destroyed successfully!\n"
+  end
 end
 
 def show_teachers
