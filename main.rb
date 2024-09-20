@@ -224,6 +224,39 @@ def add_teacher
   end
 end
 
+def update_teacher
+  puts "Enter id:"
+  id = gets.to_i
+  Helper.clear_console
+
+  teacher = Teacher.find(id)
+
+  if teacher
+    puts "Enter name:"
+    name = gets.chomp
+
+    puts "Enter birth date:"
+    birth_date = gets.chomp
+
+    puts "Enter email:"
+    email = gets.chomp
+
+    puts "Enter phone number:"
+    phone_number = gets.chomp
+
+    puts "Enter department:"
+    department = gets.chomp
+
+    teacher.name = name
+    teacher.birth_date = birth_date
+    teacher.email = email
+    teacher.phone_number = phone_number
+    teacher.department = department
+    teacher.display
+    puts "#{teacher} updated successfully!\n"
+  end
+end
+
 def delete_teacher
   puts "Enter teacher id:"
   id = gets.to_i
@@ -318,6 +351,8 @@ while option != 'exit'
       delete_teacher
     when 3
       show_teachers
+    when 4
+      update_teacher
     end
   end
 
