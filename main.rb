@@ -107,6 +107,23 @@ def add_subject
   end
 end
 
+def update_subject
+  puts "Enter id:"
+  id = gets.to_i
+  Helper.clear_console
+
+  subject = Subject.find(id)
+
+  if subject
+    puts "Enter name:"
+    name = gets.chomp
+
+    subject.name = name
+    subject.display
+    puts "#{subject} updated successfully!\n"
+  end
+end
+
 def delete_subject
   puts "Enter subject id:"
   id = gets.to_i
@@ -230,8 +247,12 @@ while option != 'exit'
       # Delete Subject
     when 2
       delete_subject
+      # Show Subject
     when 3
       show_subjects
+      # Update Subject
+    when 4
+      update_subject
     end
     # Teacher Management
   when 4
