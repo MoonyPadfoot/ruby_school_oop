@@ -12,6 +12,10 @@ class Course
     @@record.prepend(self)
   end
 
+  def self.first(query)
+    query ? @@record[0..query - 1].each { |course| course.display } : self.all.each { |course| course.display }
+  end
+
   def destroy
     @@record.delete(self)
   end
