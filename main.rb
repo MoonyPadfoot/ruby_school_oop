@@ -100,6 +100,23 @@ def add_course
   end
 end
 
+def update_course
+  puts "Enter id:"
+  id = gets.to_i
+  Helper.clear_console
+
+  course = Course.find(id)
+
+  if course
+    puts "Enter name:"
+    name = gets.chomp
+
+    course.name = name
+    course.display
+    puts "#{course} updated successfully!\n"
+  end
+end
+
 def delete_course
   puts "Enter course id:"
   id = gets.to_i
@@ -265,6 +282,8 @@ while option != 'exit'
       delete_course
     when 3
       show_courses
+    when 4
+      update_course
     end
     # Subject Management
   when 3
