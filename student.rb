@@ -37,7 +37,7 @@ class Student
   end
 
   def self.first(query)
-    query ? @@record[0..query - 1].each { |student| student.display } : self.all.each { |student| student. display}
+    query ? @@record[0..query - 1].each { |student| student.display } : self.all.each { |student| student.display }
   end
 
   def self.find(id)
