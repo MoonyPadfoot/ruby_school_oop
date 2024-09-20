@@ -22,7 +22,7 @@ class Student
 
   def destroy
     student = @@record.find { |student| student == self }
-    student.deleted_at = Time.now
+    student.deleted_at = Time.now if student
   end
 
   def display
