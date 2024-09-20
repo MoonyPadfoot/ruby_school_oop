@@ -44,6 +44,13 @@ def delete_student
   puts "Student destroyed successfully!\n" if student.destroy
 end
 
+def show_students
+  puts "Enter number of record(s) to display:"
+  query = gets.to_i
+
+  Student.first(query)
+end
+
 def add_course
   id = Course.all.size + 1
 
@@ -155,6 +162,8 @@ while option != 'exit'
       # Delete Student
     when 2
       delete_student
+    when 3
+      show_students
     end
     # Course Management
   when 2
@@ -168,7 +177,6 @@ while option != 'exit'
       # Delete Course
     when 2
       delete_course
-
     end
     # Subject Management
   when 3
