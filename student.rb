@@ -9,7 +9,11 @@ class Student
     @phone_number = phone_number
   end
 
-  @@record = []
+  @@record = [
+    Student.new(1, 's1', '1992', 's1@m.co', '43819219'),
+    Student.new(2, 's1', '1992', 's1@m.co', '43819219'),
+    Student.new(3, 's1', '1992', 's1@m.co', '43819219'),
+  ]
 
   def save
     @@record.prepend(self)
@@ -30,6 +34,10 @@ class Student
 
   def self.all
     @@record
+  end
+
+  def self.first(query)
+    query ? @@record[0..query - 1].each { |student| student.display } : self.all.each { |student| student. display}
   end
 
   def self.find(id)
