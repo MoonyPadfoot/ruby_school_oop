@@ -21,6 +21,7 @@ class Subject
   end
 
   def display
+    puts "===============\n"
     puts "ID: #{@id}"
     puts "Name: #{@name}"
     puts "===============\n"
