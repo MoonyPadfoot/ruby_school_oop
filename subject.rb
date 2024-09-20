@@ -6,7 +6,11 @@ class Subject
     @name = name
   end
 
-  @@record = []
+  @@record = [
+    Subject.new(1, 's1'),
+    Subject.new(2, 's2'),
+    Subject.new(3, 's3'),
+  ]
 
   def save
     @@record.prepend(self)
@@ -24,6 +28,10 @@ class Subject
 
   def self.all
     @@record
+  end
+
+  def self.first(query)
+    query ? @@record[0..query - 1].each { |subject| subject.display } : self.all.each { |subject| subject.display }
   end
 
   def self.find(id)
