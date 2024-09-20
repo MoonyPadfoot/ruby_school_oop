@@ -106,6 +106,13 @@ def delete_subject
   puts "Subject destroyed successfully!\n" if subject.destroy
 end
 
+def show_subjects
+  puts "Enter number of record(s) to display:"
+  query = gets.to_i
+
+  Subject.first(query)
+end
+
 def add_teacher
   id = Teacher.all.size + 1
 
@@ -199,6 +206,8 @@ while option != 'exit'
       # Delete Subject
     when 2
       delete_subject
+    when 3
+      show_subjects
     end
     # Teacher Management
   when 4
