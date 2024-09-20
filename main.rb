@@ -55,6 +55,35 @@ def show_students
   Student.first(query)
 end
 
+def update_student
+  puts "Enter id:"
+  id = gets.to_i
+  Helper.clear_console
+
+  student = Student.find(id)
+
+  if student
+    puts "Enter name:"
+    name = gets.chomp
+
+    puts "Enter birth date:"
+    birth_date = gets.chomp
+
+    puts "Enter email:"
+    email = gets.chomp
+
+    puts "Enter phone number:"
+    phone_number = gets.chomp
+
+    student.name = name
+    student.birth_date = birth_date
+    student.email = email
+    student.phone_number = phone_number
+    student.display
+    puts "#{student} updated successfully!\n"
+  end
+end
+
 def add_course
   id = Course.all.size + 1
 
@@ -219,6 +248,8 @@ while option != 'exit'
       delete_student
     when 3
       show_students
+    when 4
+      update_student
     end
     # Course Management
   when 2
