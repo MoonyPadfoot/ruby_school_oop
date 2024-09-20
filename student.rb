@@ -21,11 +21,11 @@ class Student
   end
 
   def destroy
-    @@record.delete(self)
+    student = @@record.find { |student| student == self }
+    student.deleted_at = Time.now
   end
 
   def display
-    puts "===============\n"
     puts "ID: #{@id}"
     puts "Name: #{@name}"
     puts "Birth date: #{@birth_date}"
@@ -35,18 +35,19 @@ class Student
   end
 
   def self.all
-    @@record
+    @@record.select { |student| !student.deleted_at }
   end
 
   def self.first(query)
-    query ? @@record[0..query - 1].each { |student| student.display } : self.all.each { |student| student.display }
+    query ? @@record[0..query - 1].each { |student| student.display unless student.deleted_at }
+      : self.all.each { |student| student.display unless student.deleted_at }
   end
 
   def self.find(id)
-    @@record.find { |student| student.id == id }
+    @@record.find { |student| student.id == id && !student.deleted_at }
   end
 
   def self.find_by_email(email)
-    @@record.find { |student| student.email = email }
+    @@record.find { |student| student.email = email && !student.deleted_at }
   end
 end

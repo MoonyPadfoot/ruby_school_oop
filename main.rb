@@ -41,7 +41,10 @@ def delete_student
   Helper.clear_console
 
   student = Student.find(id)
-  puts "Student destroyed successfully!\n" if student.destroy
+  if student
+    student.destroy
+    puts "Student destroyed successfully!\n"
+  end
 end
 
 def show_students
