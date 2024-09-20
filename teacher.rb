@@ -34,6 +34,10 @@ class Teacher
     @@record
   end
 
+  def self.first(query)
+    query ? @@record[0..query - 1].each { |teacher| teacher.display } : self.all.each { |teacher| teacher.display }
+  end
+
   def self.find(id)
     @@record.find { |teacher| teacher.id == id }
   end

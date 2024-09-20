@@ -156,6 +156,13 @@ def delete_teacher
   puts "Teacher destroyed successfully!\n" if teacher.destroy
 end
 
+def show_teachers
+  puts "Enter number of record(s) to display:"
+  query = gets.to_i
+
+  Teacher.first(query)
+end
+
 option = nil
 while option != 'exit'
   puts "Choose an option below:\n"
@@ -221,6 +228,8 @@ while option != 'exit'
       # Delete Teacher
     when 2
       delete_teacher
+    when 3
+      show_teachers
     end
   end
 
