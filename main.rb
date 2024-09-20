@@ -293,73 +293,81 @@ while option != 'exit'
   case option.to_i
     # Student Management
   when 1
-    option = Helper.add_delete_prompt("Student")
-    Helper.clear_console
+    until option.to_i == 5
+      option = Helper.add_delete_prompt("Student")
+      Helper.clear_console
 
-    case option.to_i
-      # Add Student
-    when 1
-      add_student
-      # Delete Student
-    when 2
-      delete_student
-    when 3
-      show_students
-    when 4
-      update_student
+      case option.to_i
+        # Add Student
+      when 1
+        add_student
+        # Delete Student
+      when 2
+        delete_student
+      when 3
+        show_students
+      when 4
+        update_student
+      end
     end
     # Course Management
   when 2
-    option = Helper.add_delete_prompt("Course")
-    Helper.clear_console
+    until option.to_i == 5
+      option = Helper.add_delete_prompt("Course")
+      Helper.clear_console
 
-    case option.to_i
-      # Add course
-    when 1
-      add_course
-      # Delete Course
-    when 2
-      delete_course
-    when 3
-      show_courses
-    when 4
-      update_course
+      case option.to_i
+        # Add course
+      when 1
+        add_course
+        # Delete Course
+      when 2
+        delete_course
+      when 3
+        show_courses
+      when 4
+        update_course
+      end
     end
     # Subject Management
   when 3
-    option = Helper.add_delete_prompt("Subject")
-    Helper.clear_console
+    until option.to_i == 5
+      option = Helper.add_delete_prompt("Subject")
+      Helper.clear_console
 
-    case option.to_i
-      # Add Subject
-    when 1
-      add_subject
-      # Delete Subject
-    when 2
-      delete_subject
-      # Show Subject
-    when 3
-      show_subjects
-      # Update Subject
-    when 4
-      update_subject
+      case option.to_i
+        # Add Subject
+      when 1
+        add_subject
+        # Delete Subject
+      when 2
+        delete_subject
+        # Show Subject
+      when 3
+        show_subjects
+        # Update Subject
+      when 4
+        update_subject
+      end
     end
     # Teacher Management
   when 4
-    option = Helper.add_delete_prompt("Teacher")
-    Helper.clear_console
+    until option.to_i == 5
+      option = Helper.add_delete_prompt("Teacher")
+      Helper.clear_console
 
-    case option.to_i
-      # Add Teacher
-    when 1
-      add_teacher
-      # Delete Teacher
-    when 2
-      delete_teacher
-    when 3
-      show_teachers
-    when 4
-      update_teacher
+      case option.to_i
+        # Add Teacher
+      when 1
+        add_teacher
+        # Delete Teacher
+      when 2
+        delete_teacher
+      when 3
+        show_teachers
+      when 4
+        update_teacher
+      end
     end
   end
 
