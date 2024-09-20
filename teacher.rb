@@ -21,6 +21,7 @@ class Teacher
   end
 
   def display
+    puts "===============\n"
     puts "ID: #{@id}"
     puts "Name: #{@name}"
     puts "Birth date: #{@birth_date}"
