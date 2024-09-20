@@ -23,7 +23,7 @@ class Course
 
   def display
     puts "ID: #{@id}"
-    puts "Name: #{@name}"
+    puts "Course Name: #{@name}"
     puts "===============\n"
   end
 

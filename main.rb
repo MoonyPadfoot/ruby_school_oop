@@ -6,6 +6,9 @@ require_relative 'helpers'
 include Helper
 
 def add_student
+  puts "COURSES:"
+  Course.all.each { |course| course.display }
+
   id = Student.all.size + 1
 
   puts "Enter name:"
@@ -20,6 +23,9 @@ def add_student
   puts "Enter phone number:"
   phone_number = gets.chomp
 
+  puts "Enter course id:"
+  course_id = gets.to_i
+
   Helper.clear_console
 
   student = Student.new
@@ -28,6 +34,7 @@ def add_student
   student.birth_date = birth_date
   student.email = email
   student.phone_number = phone_number
+  student.course_id = course_id
 
   if student
     student.save
