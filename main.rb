@@ -1,5 +1,6 @@
 require_relative 'student'
 require_relative 'course'
+require_relative 'course_subject'
 require_relative 'subject'
 require_relative 'teacher'
 require_relative 'helpers'
@@ -138,10 +139,74 @@ def delete_course
 end
 
 def show_courses
-  puts "Enter number of record(s) to display:"
-  query = gets.to_i
+  puts "(1) Display list of courses\n(2) Display specific course\n"
+  option = gets.to_i
+ 
+  case option
+  when 1
+    puts "Enter number of record(s) to display:"
+    query = gets.to_i
 
-  Course.first(query)
+    Course.first(query)
+  when 2
+    puts "Enter course id to display:"
+    course_id = gets.to_i
+
+    Course.find(course_id).display
+
+    while true
+      puts "(1) Add subject to course\n(2) Remove subject from course\n(3) Back"
+      option = gets.chomp
+
+      case option.to_i
+      when 1
+        add_subjects(course_id)
+      when 2
+        remove_subjects(course_id)
+      when 3
+        break
+      end
+    end
+  end
+
+end
+
+def add_subjects(course_id)
+  Subject.first(nil)
+
+  puts "Enter subject id to add to course:"
+  subject_id = gets.to_i
+
+  if CourseSubject.find_by_subject(subject_id)
+    puts "Subject already exists in this course\n"
+    return
+  end
+
+  id = CourseSubject.all.size + 1
+
+  course_subject = CourseSubject.new(id, course_id, subject_id)
+  if course_subject
+    course_subject.save
+    puts "Subject successfully added to course!\n"
+  end
+
+  CourseSubject.all.each { |course_subject| Subject.find(course_subject.subject_id).display }
+end
+
+def remove_subjects(course_id)
+  CourseSubject.all.each { |course_subject| Subject.find(course_subject.subject_id).display }
+
+  puts "Enter subject id to remove from course:"
+  subject_id = gets.to_i
+
+  course_subject = CourseSubject.find_by_subject(subject_id)
+
+  if course_subject
+    course_subject.destroy
+    puts "Subject successfully removed from course!\n"
+  end
+
+  CourseSubject.all.each { |course_subject| Subject.find(course_subject.subject_id).display }
 end
 
 def add_subject
