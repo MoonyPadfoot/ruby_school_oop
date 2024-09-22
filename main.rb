@@ -152,10 +152,11 @@ def show_courses
     puts "Enter course id to display:"
     course_id = gets.to_i
 
-    Course.find(course_id).display
+    course = Course.find(course_id)
+    course.display
 
     while true
-      puts "(1) Add subject to course\n(2) Remove subject from course\n(3) Back"
+      puts "(1) Add subject to course\n(2) Remove subject from course\n(3) Show all students\n(4) Show all subjects \n(5) Back"
       option = gets.chomp
 
       case option.to_i
@@ -164,6 +165,10 @@ def show_courses
       when 2
         remove_subjects(course_id)
       when 3
+        show_course_students(course)
+      when 4
+        show_course_subjects(course)
+      when 5
         break
       end
     end
@@ -207,6 +212,14 @@ def remove_subjects(course_id)
   end
 
   CourseSubject.all.each { |course_subject| Subject.find(course_subject.subject_id).display }
+end
+
+def show_course_subjects(course)
+  course.subjects.each { |subject| subject.display }
+end
+
+def show_course_students(course)
+  course.students.each { |student| student.display }
 end
 
 def add_subject

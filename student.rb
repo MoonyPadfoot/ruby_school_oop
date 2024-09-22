@@ -33,7 +33,6 @@ class Student
     puts "Email: #{@email}"
     puts "Phone number: #{@phone_number}"
     Course.find(@course_id).display
-    puts "===============\n"
   end
 
   def self.all

@@ -27,6 +27,19 @@ class Course
     puts "===============\n"
   end
 
+  def students
+    Student.all.select { |student| student.course_id == self.id }
+  end
+
+  def subjects
+    course_subjects = CourseSubject.all.select { |course_subject| course_subject.course_id == self.id }
+    subjects = []
+    course_subjects.each do |course_subject| 
+      subjects.prepend(Subject.find(course_subject.subject_id))
+    end
+    return subjects
+  end
+
   def self.all
     @@record.select { |course| !course.deleted_at }
   end
