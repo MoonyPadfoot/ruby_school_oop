@@ -1,6 +1,7 @@
 require_relative 'student'
 require_relative 'course'
 require_relative 'course_subject'
+require_relative 'student_subject'
 require_relative 'subject'
 require_relative 'teacher'
 require_relative 'helpers'
@@ -39,9 +40,16 @@ def add_student
 
   if student
     student.save
+    add_student_subject(course_id, student.id)
     student.display
     puts "Student added successfully!\n"
+    StudentSubject.all.each { |student_subject| student_subject.display }
   end
+end
+
+def add_student_subject(course_id, student_id)
+  subjects = Course.find(course_id).subjects
+  subjects.each { |subject| StudentSubject.new(student_id, subject.id).save }
 end
 
 def delete_student
