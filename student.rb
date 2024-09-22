@@ -35,6 +35,10 @@ class Student
     Course.find(@course_id).display
   end
 
+  def subjects
+    Course.find(@course_id).subjects
+  end
+
   def self.all
     @@record.select { |student| !student.deleted_at }
   end

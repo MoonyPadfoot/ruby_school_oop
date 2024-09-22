@@ -65,10 +65,24 @@ def delete_student
 end
 
 def show_students
-  puts "Enter number of record(s) to display:"
-  query = gets.to_i
+  puts "(1) Display list of students\n(2) Display specific student\n"
+  option = gets.to_i
 
-  Student.first(query)
+  case option
+  when 1
+    puts "Enter number of record(s) to display:"
+    query = gets.to_i
+
+    Student.first(query)
+  when 2
+    puts "Enter student id to display:"
+    student_id = gets.to_i
+
+    student = Student.find(student_id)
+    student.display
+    puts "Subjects:"
+    student.subjects.each { |subject| subject.display }
+  end
 end
 
 def update_student
