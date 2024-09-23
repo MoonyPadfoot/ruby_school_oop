@@ -37,7 +37,7 @@ class Course
     course_subjects.each do |course_subject| 
       subjects.prepend(Subject.find(course_subject.subject_id))
     end
-    return subjects
+    subjects
   end
 
   def self.all
