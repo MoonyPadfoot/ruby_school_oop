@@ -18,8 +18,9 @@ class Teacher < SchoolPersonnel
   end
 
   def destroy
-    teacher = @@record.find { |teacher| teacher == self }
-    teacher.deleted_at = Time.now if teacher
+    super(@@record)
+    # teacher = @@record.find { |teacher| teacher == self }
+    # teacher.deleted_at = Time.now if teacher
   end
 
   def display
@@ -29,19 +30,18 @@ class Teacher < SchoolPersonnel
   end
 
   def self.all
-    @@record.select { |teacher| !teacher.deleted_at }
+    super(@@record)
   end
 
   def self.first(query)
-    query ? @@record[0..query - 1].each { |teacher| teacher.display unless teacher.deleted_at }
-      : self.all.each { |teacher| teacher.display unless teacher.deleted_at }
+    super(query, @@record)
   end
 
   def self.find(id)
-    @@record.find { |teacher| teacher.id == id && !teacher.deleted_at }
+    super(id, @@record)
   end
 
   def self.find_by_email(email)
-    @@record.find { |teacher| teacher.email = email && !teacher.deleted_at }
+    super(email, @@record)
   end
 end

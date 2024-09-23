@@ -80,13 +80,13 @@ def show_students
     student_id = gets.to_i
 
     student = Student.find(student_id)
+    student.display
 
     unless student.subjects
       puts "No subjects for this student"
       return
     end
 
-    student.display
     puts "Subjects:"
     student.subjects.each { |subject| subject.display }
   end

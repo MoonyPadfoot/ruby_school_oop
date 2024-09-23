@@ -10,16 +10,12 @@ class SchoolPersonnel
     @deleted_at = deleted_at
   end
 
-  # @@record = []
-  #
-  # def save
-  #   @@record.prepend(self)
-  # end
-  #
-  # def destroy
-  #   school_personnel = @@record.find { |school_personnel| school_personnel == self }
-  #   school_personnel.deleted_at = Time.now if school_personnel
-  # end
+  def save; end
+
+  def destroy(record)
+    school_personnel = record.find { |school_personnel| school_personnel == self }
+    school_personnel.deleted_at = Time.now if school_personnel
+  end
 
   def display
     puts "ID: #{@id}"
@@ -29,20 +25,20 @@ class SchoolPersonnel
     puts "Phone number: #{@phone_number}"
   end
 
-  # def self.all(record)
-  #   record.select { |school_personnel| !school_personnel.deleted_at }
-  # end
-  #
-  # def self.first(query)
-  #   query ? @@record[0..query - 1].each { |school_personnel| school_personnel.display unless school_personnel.deleted_at }
-  #     : self.all.each { |school_personnel| school_personnel.display unless school_personnel.deleted_at }
-  # end
-  #
-  # def self.find(id)
-  #   @@record.find { |school_personnel| school_personnel.id == id && !school_personnel.deleted_at }
-  # end
-  #
-  # def self.find_by_email(email)
-  #   @@record.find { |school_personnel| school_personnel.email = email && !school_personnel.deleted_at }
-  # end
+  def self.all(record)
+    record.select { |school_personnel| !school_personnel.deleted_at }
+  end
+
+  def self.first(query, record)
+    query ? record[0..query - 1].each { |school_personnel| school_personnel.display unless school_personnel.deleted_at }
+      : record.each { |school_personnel| school_personnel.display unless school_personnel.deleted_at }
+  end
+
+  def self.find(id, record)
+    record.find { |school_personnel| school_personnel.id == id && !school_personnel.deleted_at }
+  end
+
+  def self.find_by_email(email, record)
+    record.find { |school_personnel| school_personnel.email = email && !school_personnel.deleted_at }
+  end
 end
