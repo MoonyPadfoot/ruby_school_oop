@@ -19,8 +19,6 @@ class Teacher < SchoolPersonnel
 
   def destroy
     super(@@record)
-    # teacher = @@record.find { |teacher| teacher == self }
-    # teacher.deleted_at = Time.now if teacher
   end
 
   def display
