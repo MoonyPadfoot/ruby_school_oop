@@ -1,5 +1,6 @@
 require_relative 'student'
 require_relative 'course'
+require_relative 'school_personnel'
 require_relative 'course_subject'
 require_relative 'student_subject'
 require_relative 'subject'
@@ -79,6 +80,12 @@ def show_students
     student_id = gets.to_i
 
     student = Student.find(student_id)
+
+    unless student.subjects
+      puts "No subjects for this student"
+      return
+    end
+
     student.display
     puts "Subjects:"
     student.subjects.each { |subject| subject.display }
@@ -163,7 +170,7 @@ end
 def show_courses
   puts "(1) Display list of courses\n(2) Display specific course\n"
   option = gets.to_i
- 
+
   case option
   when 1
     puts "Enter number of record(s) to display:"
@@ -475,10 +482,10 @@ end
 
 puts "Student\n\n"
 Student.all.each { |elem| elem.display }
-puts "Course\n\n"
-Course.all.each { |elem| elem.display }
-puts "Subject\n\n"
-Subject.all.each { |elem| elem.display }
+# puts "Course\n\n"
+# Course.all.each { |elem| elem.display }
+# puts "Subject\n\n"
+# Subject.all.each { |elem| elem.display }
 puts "Teacher\n\n"
 Teacher.all.each { |elem| elem.display }
 
