@@ -480,12 +480,3 @@ while option != 'exit'
 
 end
 
-puts "Student\n\n"
-Student.all.each { |elem| elem.display }
-# puts "Course\n\n"
-# Course.all.each { |elem| elem.display }
-# puts "Subject\n\n"
-# Subject.all.each { |elem| elem.display }
-puts "Teacher\n\n"
-Teacher.all.each { |elem| elem.display }
-
