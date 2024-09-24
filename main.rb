@@ -44,7 +44,7 @@ def add_student
     add_student_subject(course_id, student.id)
     student.display
     puts "Student added successfully!\n"
-    StudentSubject.all.each { |student_subject| student_subject.display }
+    StudentSubject.all.each { |student_subject| Subject.find(student_subject.subject_id).display }
   end
 end
 
